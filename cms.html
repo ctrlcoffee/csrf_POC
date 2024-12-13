@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Using the XMLHttpRequest Object</h2>
+  <div id="demo">
+    <button type="button" onclick="loadXMLDoc()">Change Content</button>
+  </div>
+  <script>
+    function loadXMLDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      
+      xhttp.open("POST", "https://w8mkfiw5kw.voorivex-lab.online/api/get_info", true);
+      xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhttp.withCredentials=true;
+      xhttp.send("user_id=2");
+    }
+  </script>
+</body>
+</html>
